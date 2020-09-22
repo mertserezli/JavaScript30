@@ -78,22 +78,16 @@
     window.addEventListener('keydown', playSound);
 
     function clickTrigger(){
-        let key=(this.dataset.key);
-        const audio=document.querySelector(`audio[data-key="${key}"]`);
-        const item=this;
-        item.classList.add('play');
+        let key = (this.dataset.key);
+        const audio = document.querySelector(`audio[data-key="${key}"]`);
+        const item = this;
+        item.classList.add('playing');
         audio.currentTime = 0;
         audio.play();
 
     }
 
-    function unClickTrigger(){
-        this.classList.remove('play');
-    }
-
-    const items = document.querySelectorAll('.key');
-    items.forEach(item => item.addEventListener('mousedown',clickTrigger));
-    items.forEach(item => item.addEventListener('mouseup',unClickTrigger));
+    keys.forEach(item => item.addEventListener('mousedown',clickTrigger));
 </script>
 
 
