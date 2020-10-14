@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Cardio 💪💪</title>
+</head>
+<body>
+<p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+<script>
+
+    const people = [
+        { name: 'Wes', year: 1988 },
+        { name: 'Kait', year: 1986 },
+        { name: 'Irv', year: 1970 },
+        { name: 'Lux', year: 2015 }
+    ];
+    console.log("People:");
+    console.table(people);
+
+    console.log("Is there atleast one adult?");
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({isAdult});
+
+    console.log("Is everyone adult?");
+    const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({allAdults});
+
+    const comments = [
+        { text: 'Love this!', id: 523423 },
+        { text: 'Super good', id: 823423 },
+        { text: 'You are the best', id: 2039842 },
+        { text: 'Ramen is my fav food ever', id: 123523 },
+        { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+    console.log("Comments:");
+    console.table(comments);
+
+    const comment = comments.find(comment => comment.id === 823423);
+    console.log("Comment with id = 823423:");
+    console.log(comment);
+
+    const index = comments.findIndex(comment => comment.id === 823423);
+    console.log("Index of comment with id = 823423:");
+    console.log(index);
+
+
+    const newComments = [
+        ...comments.slice(0, index),
+        ...comments.slice(index + 1)
+    ];
+    console.log("Remove comment with id = 823423");
+    console.table(newComments);
+    
+    comments.splice(index, 1);
+    console.log("Remove comment with id = 823423 using splice");
+    console.table(comments)
+
+</script>
+</body>
+</html>
